@@ -1,0 +1,26 @@
+{
+  "cities": [
+    {
+      "id": 1,
+      "name": "New York City, NY",
+      "image": "https://i.imgur.com/qYIIsGH.jpg",
+      "detailed-info": "smelly"
+    },
+    {
+      "id": 2,
+      "name": "Houston, TX",
+      "image": "https://i.imgur.com/LbKmeoQ.jpg"
+    },
+      {
+      "id": 3,
+      "name": "Denver, CO",
+      "image": "https://i.imgur.com/p8fEtSC.jpg"
+  },
+      {
+      "id": 4,
+      "name": "San Francisco, CA",
+      "image": "https://i.imgur.com/65NV4UT.jpg"
+  }
+    
+  ]
+}
