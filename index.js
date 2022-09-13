@@ -1,41 +1,58 @@
+
+
 const cityAPI = "http://localhost:3000/cities";
 
-fetch(cityAPI)
-  .then((res) => res.json())
-  .then(renderCities);
+function getCities (){
+
+  return fetch(cityAPI)
+  .then((res) => res.json())}
+
+
 
 function renderCities(cities) {
-  characters.forEach(renderInfo);
+  
+  cities.forEach(renderInfo);
 }
 
-function el(id) { 
-    return document.getElementById(id);
-  }
 
-const cityBar = el("character-bar");
-const detailedInfo = el("detailed-info");
-const cityName = el("name");
-const image = el("image");
+const cityBar = document.getElementById("character-bar");
+const detailedInfo = document.getElementById("detailed-info");
+const cityName = document.getElementById("name");
+const image = document.getElementById("image");
 
 
 let currentCity;
 
-
 function renderCity(city) {
   const fcSpan = document.createElement("span");
+
   fcSpan.innerText = city.name;
-  fcBar.append(fcSpan);
+  document.querySelector('#character-bar').append(fcSpan);
 
   fcSpan.addEventListener("click", () => {
-    currentFc = city;
-    info(city);
+    
+      cityName.textContent = city.name
+      image.src = city.image   
+
+
+    /*
+      <div class="characterInfo">
+        <div id="detailed-info">
+          <p id="name">Character's Name</p>
+          <img
+            id="image"
+            alt="Character's Name">
+        </div>
+        */
+  
   });
 }
 
-function info(character) {
-  cityName.innerText = character.name;
-  image.src = character.image;
-  voteCount.innerText = character.votes;
-}
+function info(city) {
 
-<script type="text/javascript" src="http://localhost:3000/characters"></script>
+  cityName.innerText = city.name;
+  image.src = city.image;
+
+  }
+
+getCities().then(data => data.forEach(renderCity))
