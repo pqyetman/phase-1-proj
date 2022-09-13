@@ -1,40 +1,49 @@
-
 <html>
-    <head>
-      <title>Weather or Not</title>
-      <link rel="stylesheet" type="text/css" href="style.css" />
-    </head>
-    <body>
-      <div class="logo">
-        <h1>Weather or Not</h1>
-        <audio id="audio" src="https://freewavesamples.com/files/Roland-JV-2080-101-Bass-C2.wav" preload="auto"></audio>
-        <button id="play">Play</button>
-        <button id="stop">Stop</button>
-        <!-- goes inside of div.logo and after h1 with text content of Weather or Not-->
-        <div id="light-switch-container">
-          <input type="checkbox" id="light-switch">
-          <label for="light-switch"></label>
-        </div>
-      </div>
-  
-      <div id="character-bar">
-      </div>
-  
-      <div class="characterInfo">
-        <div id="detailed-info">
-          <p id="name">No City Selected</p>
-          <img 
-            id="image"
-            alt= "No City Selected"
-            > 
-          <h4 id = "Date">Date</h4>
-          <h4 id = "Temp">Temp</h4> 
-          <h4 id = "Weather">Weather</h4>  
-          <h4 id = "Wind">Wind</h4>              
-        </div>
-  
-      </div>
-      <script src="index.js"></script>      
-    </body>
-  </html>
-  
+
+<head>
+  <title>Weather or Not</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+  <div class="logo">
+    <h1>Weather or Not</h1>
+    <audio id="audio" src="https://freewavesamples.com/files/Roland-JV-2080-101-Bass-C2.wav" preload="auto"></audio>
+    <button id="play">Play</button>
+    <button id="stop">Stop</button>
+    <!-- goes inside of div.logo and after h1 with text content of Weather or Not-->
+    <div id="light-switch-container">
+      <input type="checkbox" id="light-switch">
+      <label id ="light-switch" for="light-switch"></label>
+    </div>
+  </div>
+
+  <div id="weather-bar">
+  </div>
+
+  <div class="weatherInfo">
+    <div id="detailed-info">
+      <p id="name">Select A City!</p>
+      <img id="image"
+        src="https://img.freepik.com/free-vector/hand-draw-city-skyline-sketch_1035-19581.jpg?w=1380&t=st=1663109490~exp=1663110090~hmac=1bd975880cf692d4e2f6339b4b111bbcf94c770a3dc49e01538e2b0850b85e27"
+        alt="No City Selected">
+      <h4 id="Date">Date</h4>
+      <h4 id="Temp">Temp</h4>
+      <h4 id="Weather">Weather</h4>
+      <h4 id="Wind">Wind</h4>
+    </div>
+  </div>
+  <div class = "changedateform">
+    <form id = "change-date" class = "change-date">
+      <input type="radio" id="Tomorrow" name="Tomorrow" value="Tomorrow">
+      <label class = "change-date" for="Tomorrow">Tomorrow</label><br>
+      <input type="radio" id="Two-Days Ahead" name="2-Days Ahead" value="2-Days Ahead">
+      <label class = "change-date"for="2-Days Ahead">2-Days Ahead</label><br>
+      <input type="radio" id="Three-Days Ahead" name="3-Days Ahead" value="3-Days Ahead">
+      <label class = "change-date"for="3-Days Ahead">3-Days Ahead</label>
+    </form>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>

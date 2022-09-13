@@ -14,7 +14,7 @@ html, body {
   padding: 0.5em;
 }
 
-#character-bar {
+#weather-bar {
   height: 15vh;
   background: rgb(214, 157, 70);
   display: flex;
@@ -23,7 +23,7 @@ html, body {
   padding-bottom: 3vh;
 }
 
-#character-bar span {
+#weather-bar span {
   padding: 1%;
   height: 80%;
   width: 8vw;
@@ -35,11 +35,10 @@ html, body {
   border: 1px solid white;
 }
 
-.characterInfo{
-  height: 550px;
+.weatherInfo{
+  height: 750px;
   padding: 30px;
-  font-size: 24px;
- 
+  font-size: 24px; 
   text-align: center;
 }
 
@@ -70,11 +69,11 @@ input[type="text"] {
 /* light-switch button css below  */
 #light-switch-container {
   position: relative;
-  left: 1370px;
+  left: 1750px;
   top: -60px;
 }
 
-label {
+label#light-switch {
   width: 60px;
   height: 30px;
   position: relative;
@@ -88,7 +87,7 @@ label {
 
 }
 
-label:after {
+label#light-switch:after {
   content: '';
   width: 25px;
   height: 25px;
@@ -121,5 +120,16 @@ input#light-switch:checked + label:after {
 
 label:active:after{
   width: 40px;
+
+}
+
+label.change-date{
+  width: 40px;
+  text-align: left;
+}
+
+.changedateform {
+
+  text-align: center;
 
 }
