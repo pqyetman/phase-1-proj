@@ -1,5 +1,4 @@
 
-document.addEventListener("DOMContentLoaded", ()=> {
 
   //Creating constants for the URLs
 const cityAPI = "http://localhost:3000/cities";
@@ -106,6 +105,38 @@ function renderCity(city) {
 }
 
 
+// js for button(lightSwitch) that toggles on/off dark mode
+const lightSwitch = document.getElementById('light-switch')
+
+lightSwitch.addEventListener('click', checkMode)
+
+//checks whether dark mode is on or off and acts accordingly
+function checkMode(){
+  if(lightSwitch.checked){
+    console.log('dark on');
+    darkModeOn();
+  }
+  else {
+    console.log('dark off');
+    darkModeOff();
+  }
+}
+
+function darkModeOn() {
+  document.body.classList.add('dark-mode');
+}
+
+function darkModeOff() {
+  document.body.classList.remove('dark-mode');
+}
 
 
-})
+//Button for music
+
+let playBtn = document.getElementById('play');
+let stopBtn = document.getElementById('stop');
+let playSound = function() {
+    audio.play();
+};
+playBtn.addEventListener('click', playSound, false);
+stopBtn.addEventListener('click', function(){audio.pause()}, false);
