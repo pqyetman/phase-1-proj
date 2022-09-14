@@ -33,15 +33,26 @@
       <h4 id="Wind">Wind</h4>
     </div>
   </div>
-  <div class = "changedateform">
-    <form id = "change-date" class = "change-date">
-      <input type="radio" id="Tomorrow" name="Tomorrow" value="Tomorrow">
-      <label class = "change-date" for="Tomorrow">Tomorrow</label><br>
-      <input type="radio" id="Two-Days Ahead" name="2-Days Ahead" value="2-Days Ahead">
-      <label class = "change-date"for="2-Days Ahead">2-Days Ahead</label><br>
-      <input type="radio" id="Three-Days Ahead" name="3-Days Ahead" value="3-Days Ahead">
-      <label class = "change-date"for="3-Days Ahead">3-Days Ahead</label>
-    </form>
+  <div class = "changedatefield">
+    <fieldset class = "changedatefield">
+      <legend>Select A Date:</legend>
+  
+      <div>
+        <input type="radio" id="today" name="date" value="today"
+               checked>
+        <label for="today">Today's Weather</label>
+      </div>
+  
+      <div>
+        <input type="radio" id="tomorrow" name="date" value="tomorrow">
+        <label for="tomorrow">Tomorrow's Weather</label>
+      </div>
+  
+      <div>
+        <input type="radio" id="twoDays" name="date" value="twoDays">
+        <label for="twoDays">The Weather Two Days From Now</label>
+      </div>
+  </fieldset>
   </div>
   <script src="index.js"></script>
 </body>

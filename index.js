@@ -58,7 +58,7 @@ function renderWeather(cityAPI) {
   date.textContent = reOrderDate(cityAPI.date)
   temp.textContent = `Max Daily Temperature is: ${tempFRound}°F`
   weather.textContent = interpretWeatherAPI(cityAPI.weather)
-  wind.textContent = interpretWindAPI(cityAPI.wind10m_max)
+  wind.textContent = `Wind Conditions: ${interpretWindAPI(cityAPI.wind10m_max)}`
 
 }
 
@@ -70,7 +70,7 @@ function reOrderDate(APIdate) {
   const dateFirst = dateStr.slice(0, 4);
   const dateMiddle = dateStr.slice(4, 6);
   const dateLast = dateStr.slice(6, 8);
-  let fixedDate = `Today's Date:  ${dateMiddle}/${dateLast}/${dateFirst}`
+  let fixedDate = `Date:  ${dateMiddle}/${dateLast}/${dateFirst}`
 
   return fixedDate
 }
@@ -185,30 +185,58 @@ function renderCity(city) {
 
     cityName.textContent = city.name
     image.src = city.image
+    selectCityandDay()
 
-    if (city.name === 'New York City, NY') {
+    function selectCityandDay(day = 0) {
 
-      return getCitiesWeather(newYorkAPI).then(data => renderWeather((data.dataseries[0])));
+      switch (city.name) {
+
+        case 'New York City, NY':
+          getCitiesWeather(newYorkAPI).then(data => renderWeather((data.dataseries[day])));
+          break;
+        case 'Houston, TX':
+          getCitiesWeather(houstonAPI).then(data => renderWeather((data.dataseries[day])));
+          break;
+        case 'Denver, CO':
+          getCitiesWeather(denverAPI).then(data => renderWeather((data.dataseries[day])));
+          break;
+        case 'San Francisco, CA':
+          getCitiesWeather(sanFranciscoAPI).then(data => renderWeather((data.dataseries[day])));
+          break;
+
+      }
     }
+    //Radio Button Event Listener
 
-    else if (city.name === "Houston, TX") {
+    const todayRadio = document.getElementById('today')
+    const tomRadio = document.getElementById('tomorrow')
+    const twoDayRadio = document.getElementById('twoDays')
 
-      return getCitiesWeather(houstonAPI).then(data => renderWeather((data.dataseries[0])));
-    }
 
-    else if (city.name === 'Denver, CO') {
+    todayRadio.addEventListener("input", (e) => showDay(e.target.value));
+    tomRadio.addEventListener("input", (e) => showDay(e.target.value));
+    twoDayRadio.addEventListener("input", (e) => showDay(e.target.value));
 
-      return getCitiesWeather(denverAPI).then(data => renderWeather((data.dataseries[0])));
+    function showDay(radioValue) {
 
-    }
+      switch (radioValue) {
 
-    else if (city.name === 'San Francisco, CA') {
-
-      return getCitiesWeather(sanFranciscoAPI).then(data => renderWeather((data.dataseries[0])));
+        case 'today':
+          selectCityandDay(0);
+          break;
+        case 'tomorrow':
+          selectCityandDay(1);
+          break;
+        case 'twoDays':
+          selectCityandDay(2);
+          break;
+      }
     }
 
   });
 }
+
+
 
 
 // js for button(lightSwitch) that toggles on/off dark mode
@@ -246,3 +274,6 @@ let playSound = function () {
 };
 playBtn.addEventListener('click', playSound, false);
 stopBtn.addEventListener('click', function () { audio.pause() }, false);
+
+
+

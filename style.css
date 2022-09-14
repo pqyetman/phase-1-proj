@@ -128,8 +128,10 @@ label.change-date{
   text-align: left;
 }
 
-.changedateform {
+.changedatefield{
 
   text-align: center;
+  width: 400px;
+  margin: auto;
 
 }
