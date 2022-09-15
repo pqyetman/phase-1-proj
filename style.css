@@ -1,10 +1,18 @@
-html {
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+* {
+  box-sizing: border-box; /*added to change layout of center section*/
 }
 
-html, body {
+html {
+  font-family:Georgia, 'Times New Roman', Times, serif;/*changing the font to Georgia*/
+}
+
+html, body {/* keeps page from overflowing*/
   margin: 0;
   padding: 0;
+  width: 100%; /**/
+  height: 100%; /**/
+  overflow-x: hidden; /**/
+  transition: 0.3s;/* added transition to smooth out the switch between light/dark mode*/
 }
 
 .logo{
@@ -29,13 +37,20 @@ html, body {
   width: 8vw;
   display: flex;
   justify-content: center;
-  font-size: 3vh;
+  font-size: 2vh;
   align-items: center;
   border-radius: 2em;
-  border: 1px solid white;
+  border: 3px solid white;
+}
+
+#centerRow {
+  display: flex; /*added css for center contnet container*/
+  flex-wrap: wrap; 
+  
 }
 
 .weatherInfo{
+  flex: 60%; /*percentage of page the section takes up*/
   height: 750px;
   padding: 30px;
   font-size: 24px; 
@@ -64,13 +79,14 @@ input[type="text"] {
 .dark-mode {
   background-color: #3a3a3a;
   color: white;
+  transition: 0.3s;/*added transition to smooth out the switch between light/dark mode*/
 }
 
 /* light-switch button css below  */
 #light-switch-container {
   position: relative;
-  left: 1750px;
-  top: -60px;
+  left: 95%;/* changed from placement from px to % */
+  top: 95%;/* changed from placement from px to % */
 }
 
 label#light-switch {
@@ -128,10 +144,21 @@ label.change-date{
   text-align: left;
 }
 
-.changedatefield{
-
+.changeDateField{
   text-align: center;
-  width: 400px;
-  margin: auto;
-
 }
+
+#changeDateFieldContainer {
+  flex: 20%; /*percentage of page it takes up*/
+  background-color: rgb(110, 111, 111);/*added background color for testing*/
+}
+
+#left-center{/*css for third section in center content*/
+  flex: 20%; /**/
+  padding: 10px;
+  background-color: rgb(110, 111, 111);/*added background color for testing*/
+}
+p.a { /*css for spooky text*/
+  font-style: italic;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+} 

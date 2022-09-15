@@ -5,11 +5,83 @@ const cityAPI = "http://localhost:3000/cities";
 
 const newYorkAPI = `http://www.7timer.info/bin/api.pl?lon=-74.00&lat=40.71&product=civillight&output=json`
 
+const newYorkAPICivil = `http://www.7timer.info/bin/api.pl?lon=-74.00&lat=40.71&product=civil&output=json`
+
 const sanFranciscoAPI = `http://www.7timer.info/bin/api.pl?lon=-122.41&lat=37.77.00&product=civillight&output=json`
+
+const sanFranciscoAPICivil = `http://www.7timer.info/bin/api.pl?lon=-122.41&lat=37.77.00&product=civil&output=json`
 
 const houstonAPI = `http://www.7timer.info/bin/api.pl?lon=-95.36&lat=29.76&product=civillight&output=json`
 
+const houstonAPICivil = `http://www.7timer.info/bin/api.pl?lon=-95.36&lat=29.76&product=civil&output=json`
+
 const denverAPI = `http://www.7timer.info/bin/api.pl?lon=-104.99&lat=39.74&product=civillight&output=json`
+
+const denverAPICivil = `http://www.7timer.info/bin/api.pl?lon=-104.99&lat=39.74&product=civil&output=json`
+
+
+
+//Rendering the Next 8 hours 
+
+const cloudCov = document.getElementById('cloudcover')
+const relHum = document.getElementById('relhum')
+const windD = document.getElementById('windd')
+const windSP = document.getElementById('windsp')
+const precip = document.getElementById('precip')
+const weathType = document.getElementById('weathtype')
+
+function renderEightHours(weatherData) {
+
+  for (i = 0; i < 8; i++) {
+
+    cloudCov.children[i].textContent = decodeCloudCover(weatherData[i].cloudcover)
+    relHum.children[i].textContent = weatherData[i].rh2m
+    windD.children[i].textContent = weatherData[i].wind10m.direction
+    windSP.children[i].textContent = interpretWindAPI(weatherData[i].wind10m.speed)
+    precip.children[i].textContent = weatherData[i].prec_type
+    weathType.children[i].textContent = weatherData[i].weather
+
+
+  }
+}
+
+//Cloud Cover 
+
+function decodeCloudCover(covernum) {
+  let output = ""
+  switch (covernum) {
+    
+    case 1:
+     output= '0%-6%';
+      break;
+    case 2:
+      output= '6%-19%';
+      break;
+    case 3:
+      output= '19%-31%';
+      break;
+    case 4:
+      output= '31%-44%';
+      break;
+    case 5:
+      output='44%-56%';
+      break;
+    case 6:
+      output= '56%-69%';
+      break;
+    case 7:
+      output= '69%-81%';
+      break;
+    case 8:
+      output='81%-94%';
+      break;
+    case 9:
+      output= '94%-100%';
+      break;
+  }
+  return output;
+}
+
 
 
 //Global DOM Grab
@@ -58,38 +130,41 @@ function renderCity(city) {
 }
 
 
-function selectCityandDay(day = 0 ) {
+function selectCityandDay(day = 0) {
 
   switch (cityName.textContent) {
 
     case 'New York City, NY':
       getCitiesWeather(newYorkAPI).then(data => renderWeather((data.dataseries[day])));
+      getCitiesWeather(newYorkAPICivil).then(data => renderEightHours(data.dataseries))
       break;
     case 'Houston, TX':
       getCitiesWeather(houstonAPI).then(data => renderWeather((data.dataseries[day])));
+      getCitiesWeather(houstonAPICivil).then(data => renderEightHours(data.dataseries))
       break;
     case 'Denver, CO':
       getCitiesWeather(denverAPI).then(data => renderWeather((data.dataseries[day])));
+      getCitiesWeather(denverAPICivil).then(data => renderEightHours(data.dataseries))
       break;
     case 'San Francisco, CA':
       getCitiesWeather(sanFranciscoAPI).then(data => renderWeather((data.dataseries[day])));
+      getCitiesWeather(sanFranciscoAPICivil).then(data => renderEightHours(data.dataseries))
       break;
 
   }
 }
 
 //Declare constants to grab each radio button
-const todayRadio = document.getElementById('today')
 const tomRadio = document.getElementById('tomorrow')
 const twoDayRadio = document.getElementById('twoDays')
+const threeRadio = document.getElementById('threeDays')
 
-const grabForm = document.getElementById('dayselector')
 
 //add event listeners to radio buttons
-todayRadio.addEventListener("change", (e) => showDay(e.target.value));
+
 tomRadio.addEventListener("change", (e) => showDay(e.target.value));
 twoDayRadio.addEventListener("change", (e) => showDay(e.target.value));
-
+threeRadio.addEventListener("change", (e) => showDay(e.target.value));
 //usea  a funcion to select the correct radio value and pass it to the renderweather 
 //this changes array value to corrrect day-num
 
@@ -97,14 +172,14 @@ function showDay(radioValue) {
 
   switch (radioValue) {
 
-    case 'today':
-      selectCityandDay(0);
-      break;
     case 'tomorrow':
       selectCityandDay(1);
       break;
     case 'twoDays':
       selectCityandDay(2);
+      break;
+    case 'threeDays':
+      selectCityandDay(3);
       break;
   }
 }
@@ -272,10 +347,12 @@ function checkMode() {
 
 function darkModeOn() {
   document.body.classList.add('dark-mode');
+  audio.play();
 }
 
 function darkModeOff() {
   document.body.classList.remove('dark-mode');
+  audio.pause()
 }
 
 

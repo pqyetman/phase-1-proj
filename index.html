@@ -8,51 +8,128 @@
 <body>
   <div class="logo">
     <h1>Weather or Not</h1>
-    <audio id="audio" src="https://freewavesamples.com/files/Roland-JV-2080-101-Bass-C2.wav" preload="auto"></audio>
+    <audio id="audio" src="audiofile/Halloween Theme 1.mp3" preload="auto"></audio><!--added relative path to src attribute-->
+    <h2>
+      <p class="a">
+      Spooky Music Player
+      </p>
+    </h2> <!--peters spooky audio text-->
     <button id="play">Play</button>
     <button id="stop">Stop</button>
-    <!-- goes inside of div.logo and after h1 with text content of Weather or Not-->
     <div id="light-switch-container">
       <input type="checkbox" id="light-switch">
-      <label id ="light-switch" for="light-switch"></label>
+      <label id ="light-switch" for="light-switch">light switch</label>
     </div>
+    <p>This text explains what this page is.</p>explanation of website
+    <a href="#down">About</a> <!-- peters explanation text and link to creators-->
   </div>
-
   <div id="weather-bar">
   </div>
-
-  <div class="weatherInfo">
-    <div id="detailed-info">
-      <p id="name">Select A City!</p>
-      <img id="image"
-        src="https://img.freepik.com/free-vector/hand-draw-city-skyline-sketch_1035-19581.jpg?w=1380&t=st=1663109490~exp=1663110090~hmac=1bd975880cf692d4e2f6339b4b111bbcf94c770a3dc49e01538e2b0850b85e27"
-        alt="No City Selected">
-      <h4 id="Date">Date</h4>
-      <h4 id="Temp">Temp</h4>
-      <h4 id="Weather">Weather</h4>
-      <h4 id="Wind">Wind</h4>
+  <div id="centerRow"> <!--added div with id centerRow to hold the all divs that appear in the center of page -->
+    <div id="left-center"><!--added new column on side-->
+      <h3>The Next 8 Hours</h3>
+      <h4>Cloud Cover</h4>
+      <ol id = cloudcover>
+        <li>Hour 1</li>
+        <li>Hour 2</li>
+        <li>Hour 3</li>
+        <li>Hour 4</li>
+        <li>Hour 5</li>
+        <li>Hour 6</li>
+        <li>Hour 7</li>
+        <li>Hour 8</li>
+      </ol>      
+      <h4>Relative Humidity</h4>
+      <ol id = relhum>
+        <li>Hour 1</li>
+        <li>Hour 2</li>
+        <li>Hour 3</li>
+        <li>Hour 4</li>
+        <li>Hour 5</li>
+        <li>Hour 6</li>
+        <li>Hour 7</li>
+        <li>Hour 8</li>
+      </ol>     
+      <h4>Wind Direction</h4>
+      <ol id = windd>
+        <li>Hour 1</li>
+        <li>Hour 2</li>
+        <li>Hour 3</li>
+        <li>Hour 4</li>
+        <li>Hour 5</li>
+        <li>Hour 6</li>
+        <li>Hour 7</li>
+        <li>Hour 8</li>  
+      </ol>
+      <h4>Wind Speed</h4>
+      <ol id = windsp>
+        <li>Hour 1</li>
+        <li>Hour 2</li>
+        <li>Hour 3</li>
+        <li>Hour 4</li>
+        <li>Hour 5</li>
+        <li>Hour 6</li>
+        <li>Hour 7</li>
+        <li>Hour 8</li> 
+      </ol> 
+      <h4>Precipitation Type</h4>
+      <ol id = precip>
+        <li>Hour 1</li>
+        <li>Hour 2</li>
+        <li>Hour 3</li>
+        <li>Hour 4</li>
+        <li>Hour 5</li>
+        <li>Hour 6</li>
+        <li>Hour 7</li>
+        <li>Hour 8</li>  
+      </ol>  
+      <h4>Weather Type</h4>    
+      <ol id = weathtype>
+        <li>Hour 1</li>
+        <li>Hour 2</li>
+        <li>Hour 3</li>
+        <li>Hour 4</li>
+        <li>Hour 5</li>
+        <li>Hour 6</li>
+        <li>Hour 7</li>
+        <li>Hour 8</li>
+      </ol>  
     </div>
-  </div>
-  <div class = "changedatefield">
-    <fieldset class = "changedatefield">
-      <legend>Select A Date:</legend>
-  
-      <div>
-        <input type="radio" id="today" name="date" value="today"
-               checked>
-        <label for="today">Today's Weather</label>
+    <div class="weatherInfo">
+      <div id="detailed-info">
+        <p id="name">Select A City!</p>
+        <img id="image"
+          src="https://img.freepik.com/free-vector/hand-draw-city-skyline-sketch_1035-19581.jpg?w=1380&t=st=1663109490~exp=1663110090~hmac=1bd975880cf692d4e2f6339b4b111bbcf94c770a3dc49e01538e2b0850b85e27"
+          alt="No City Selected">
+        <h4 id="Date">Date</h4>
+        <h4 id="Temp">Temp</h4>
+        <h4 id="Weather">Weather</h4>
+        <h4 id="Wind">Wind</h4>
       </div>
-  
-      <div>
-        <input type="radio" id="tomorrow" name="date" value="tomorrow">
-        <label for="tomorrow">Tomorrow's Weather</label>
-      </div>
-  
-      <div>
-        <input type="radio" id="twoDays" name="date" value="twoDays">
-        <label for="twoDays">The Weather Two Days From Now</label>
-      </div>
-  </fieldset>
+    </div>
+    <div id = "changeDateFieldContainer">
+      <fieldset class = "changeDateField">
+        <legend>Select A Date:</legend>   
+      
+        <div>
+          <input type="radio" id="tomorrow" name="date" value="tomorrow">
+          <label for="tomorrow">Tomorrow's Forcast</label>
+        </div>
+    
+        <div>
+          <input type="radio" id="twoDays" name="date" value="twoDays">
+          <label for="twoDays">Two Day Forcast</label>
+        </div>
+
+        <div>
+          <input type="radio" id="threeDays" name="date" value="threeDays">
+          <label for="threeDays">Three Day Forcast</label>
+        </div>
+      </fieldset>
+    </div>
+  </div><!--end of centerRow div-->
+  <div id="down"> <!-- creators of page content-->
+    <h1>Made and Designed by: Paul, Zach, and Pete</h1>
   </div>
   <script src="index.js"></script>
 </body>
