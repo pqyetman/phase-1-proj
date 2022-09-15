@@ -24,7 +24,6 @@ function getCities() {
 
   return fetch(cityAPI)
     .then((res) => res.json())
-
 }
 
 //Fetch Functions to get Data from 7Timer!
@@ -38,6 +37,78 @@ function getCitiesWeather(url) {
 //Passing Fetched data into render city functions
 
 getCities().then(data => data.forEach(renderCity))
+
+//
+
+//Render City 
+
+function renderCity(city) {
+
+  const fcSpan = document.createElement("span");
+  fcSpan.innerText = city.name;
+  cityBar.append(fcSpan)
+
+  fcSpan.addEventListener("click", () => {
+
+    cityName.textContent = city.name
+    image.src = city.image
+    selectCityandDay()
+
+  });
+}
+
+
+function selectCityandDay(day = 0 ) {
+
+  switch (cityName.textContent) {
+
+    case 'New York City, NY':
+      getCitiesWeather(newYorkAPI).then(data => renderWeather((data.dataseries[day])));
+      break;
+    case 'Houston, TX':
+      getCitiesWeather(houstonAPI).then(data => renderWeather((data.dataseries[day])));
+      break;
+    case 'Denver, CO':
+      getCitiesWeather(denverAPI).then(data => renderWeather((data.dataseries[day])));
+      break;
+    case 'San Francisco, CA':
+      getCitiesWeather(sanFranciscoAPI).then(data => renderWeather((data.dataseries[day])));
+      break;
+
+  }
+}
+
+//Declare constants to grab each radio button
+const todayRadio = document.getElementById('today')
+const tomRadio = document.getElementById('tomorrow')
+const twoDayRadio = document.getElementById('twoDays')
+
+const grabForm = document.getElementById('dayselector')
+
+//add event listeners to radio buttons
+todayRadio.addEventListener("change", (e) => showDay(e.target.value));
+tomRadio.addEventListener("change", (e) => showDay(e.target.value));
+twoDayRadio.addEventListener("change", (e) => showDay(e.target.value));
+
+//usea  a funcion to select the correct radio value and pass it to the renderweather 
+//this changes array value to corrrect day-num
+
+function showDay(radioValue) {
+
+  switch (radioValue) {
+
+    case 'today':
+      selectCityandDay(0);
+      break;
+    case 'tomorrow':
+      selectCityandDay(1);
+      break;
+    case 'twoDays':
+      selectCityandDay(2);
+      break;
+  }
+}
+
 
 
 function renderWeather(cityAPI) {
@@ -116,6 +187,7 @@ function interpretWindAPI(windAPI) {
 
   }
   return output
+
 }
 
 //Function to change API weather data i.e. the most annoying switch statment evet
@@ -161,6 +233,10 @@ function interpretWeatherAPI(weatherAPI) {
       output = 'SnowFall rate less than 4mm/hr';
       break;
 
+    case 'rain':
+      output = 'Rainfall rate over 4mm/hr';
+      break;
+
     case 'snow':
       output = 'SnowFall rate over 4mm/hr';
       break;
@@ -173,68 +249,6 @@ function interpretWeatherAPI(weatherAPI) {
   return output
 }
 
-//Render City 
-
-function renderCity(city) {
-
-  const fcSpan = document.createElement("span");
-  fcSpan.innerText = city.name;
-  cityBar.append(fcSpan);
-
-  fcSpan.addEventListener("click", () => {
-
-    cityName.textContent = city.name
-    image.src = city.image
-    selectCityandDay()
-
-    function selectCityandDay(day = 0) {
-
-      switch (city.name) {
-
-        case 'New York City, NY':
-          getCitiesWeather(newYorkAPI).then(data => renderWeather((data.dataseries[day])));
-          break;
-        case 'Houston, TX':
-          getCitiesWeather(houstonAPI).then(data => renderWeather((data.dataseries[day])));
-          break;
-        case 'Denver, CO':
-          getCitiesWeather(denverAPI).then(data => renderWeather((data.dataseries[day])));
-          break;
-        case 'San Francisco, CA':
-          getCitiesWeather(sanFranciscoAPI).then(data => renderWeather((data.dataseries[day])));
-          break;
-
-      }
-    }
-    //Radio Button Event Listener
-
-    const todayRadio = document.getElementById('today')
-    const tomRadio = document.getElementById('tomorrow')
-    const twoDayRadio = document.getElementById('twoDays')
-
-
-    todayRadio.addEventListener("input", (e) => showDay(e.target.value));
-    tomRadio.addEventListener("input", (e) => showDay(e.target.value));
-    twoDayRadio.addEventListener("input", (e) => showDay(e.target.value));
-
-    function showDay(radioValue) {
-
-      switch (radioValue) {
-
-        case 'today':
-          selectCityandDay(0);
-          break;
-        case 'tomorrow':
-          selectCityandDay(1);
-          break;
-        case 'twoDays':
-          selectCityandDay(2);
-          break;
-      }
-    }
-
-  });
-}
 
 
 
