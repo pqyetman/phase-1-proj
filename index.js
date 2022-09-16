@@ -32,15 +32,16 @@ const weathType = document.getElementById('weathtype')
 
 function renderEightHours(weatherData) {
 
-  for (i = 0; i < 6; i++) {
+  for (i = 1; i < 4; i++) {
+        
+    cloudCov.children[i].textContent = ` ${i * 4} Hours: ${decodeCloudCover(weatherData[i].cloudcover)}`
+    relHum.children[i].textContent = `${i * 4} Hours: ${weatherData[i].rh2m}`
+    windD.children[i].textContent = ` ${i * 4} Hours: ${weatherData[i].wind10m.direction}`
+    windSP.children[i].textContent = ` ${i * 4} Hours: ${interpretWindAPI(weatherData[i].wind10m.speed)}`
+    precip.children[i].textContent = ` ${i * 4} Hours: ${weatherData[i].prec_type}`
+    weathType.children[i].textContent = ` ${i * 4} Hours: ${interpretWeatherAPI(weatherData[i].weather)}`
 
-    cloudCov.children[i].textContent = ` ${decodeCloudCover(weatherData[i].cloudcover)}`
-    relHum.children[i].textContent = ` ${weatherData[i].rh2m}`
-    windD.children[i].textContent = ` ${weatherData[i].wind10m.direction}`
-    windSP.children[i].textContent = ` ${interpretWindAPI(weatherData[i].wind10m.speed)}`
-    precip.children[i].textContent = ` ${weatherData[i].prec_type}`
-    weathType.children[i].textContent = ` ${interpretWeatherAPI(weatherData[i].weather)}`
-
+    
 
   }
 }
@@ -215,7 +216,7 @@ function reOrderDate(APIdate) {
   let dateStr = APIdate.toString()
   const dateFirst = dateStr.slice(0, 4);
   const dateMiddle = dateStr.slice(4, 6);
-  const dateLast = dateStr.slice(6, 8);
+  const dateLast = dateStr.slice(6, 8); 
   let fixedDate = `Date:  ${dateMiddle}/${dateLast}/${dateFirst}`
 
   return fixedDate

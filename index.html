@@ -8,57 +8,59 @@
 <body>
   <div class="logo">
     <h1>Weather or Not</h1>
-    <h5>spooky music player is <br/>only a<a href="#down"> click </a>away!</h5>
+    <h5>spooky music player is <br />only a<a href="#down"> click </a>away!</h5>
     <div id="light-switch-container">
       <input type="checkbox" id="light-switch">
-      <label id ="light-switch" for="light-switch"></label>
+      <label id="light-switch" for="light-switch"></label>
     </div>
   </div>
   <div id="weather-bar">
   </div>
-  <div id="centerRow"> <!--added div with id centerRow to hold the all divs that appear in the center of page -->
-    <div id="left-center"><!--added new column on side-->
-      <h3 id="next20Hours">The Next 20 Hours</h3>
-          <p id = cloudcover>Cloud Cover<br/>
-            4 Hours:<span></span><br/>
-            12 Hours:<span></span><br/>
-            20 Hours:<span></span><br/>
+  <div id="centerRow">
+    <!--added div with id centerRow to hold the all divs that appear in the center of page -->
+    <div id="left-center">
+      <!--added new column on side-->
+      <h3 id="next20Hours">The Next 12 Hours</h3>
+      <p id=cloudcover>Cloud Cover<br />
+        <span></span>
+        <span></span>
+        <span></span>
 
-        </p>
-        <p id = relhum>Relative Humidity<br/>
-          4 Hours:<span></span><br/>
-          12 Hours:<span></span><br/>
-          20 Hours:<span></span><br/>
-  
-        </p>
-        <p id = windd>Wind Direciton<br/>
-          4 Hours:<span></span><br/>
-          12 Hours:<span></span><br/>
-          20 Hours:<span></span><br/>
- 
-        </p>
-        <p id = windsp>Wind Speed<br/>
-          4 Hours:<span></span><br/>
-          12 Hours:<span></span><br/>
-          20 Hours:<span></span><br/>
-    
-        </p>
-        <p id = precip>Precipitation<br/>
-          4 Hours:<span></span><br/>
-          12 Hours:<span></span><br/>
-          20 Hours:<span></span><br/>
-        
-        </p>
-        <p id = weathtype>Weather Type<br/>
-          4 Hours:<span></span><br/>
-          12 Hours:<span></span><br/>
-          20 Hours:<span></span><br/>
-   
-        </p>
+      </p>
+      <p id=relhum>Relative Humidity<br />
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </p>
+      <p id=windd>Wind Direciton<br />
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </p>
+      <p id=windsp>Wind Speed<br />
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </p>
+      <p id=precip>Precipitation<br />
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </p>
+      <p id=weathtype>Weather Type<br />
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </p>
     </div>
     <div class="weatherInfo">
       <div id="detailed-info">
-        <p id="name">Select a city!<br/> 
+        <p id="name">Select a city!<br />
         </p>
         <img id="image"
           src="https://img.freepik.com/free-vector/hand-draw-city-skyline-sketch_1035-19581.jpg?w=1380&t=st=1663109490~exp=1663110090~hmac=1bd975880cf692d4e2f6339b4b111bbcf94c770a3dc49e01538e2b0850b85e27"
@@ -69,8 +71,8 @@
         <h4 id="Wind">Wind</h4>
       </div>
     </div>
-    <div id = "changeDateFieldContainer">
-      <fieldset class = "changeDateField">
+    <div id="changeDateFieldContainer">
+      <fieldset class="changeDateField">
         <legend>Select A Date:</legend>
         <div>
           <input type="radio" id="tomorrow" name="date" value="tomorrow">
@@ -92,17 +94,21 @@
       <p>Weather, crazy am i right? </p>
       <p>Alaska's western coast is expecting high winds and flooding in powerful storm this weekend </p>
     </div>
-  </div><!--end of centerRow div-->
-  
-  <footer id="down"> <!-- creators of page content-->
-    <audio id="audio" src="audiofile/Halloween Theme 1.mp3" preload="auto"></audio><!--added relative path to src attribute-->
-      <p class="a">
+  </div>
+  <!--end of centerRow div-->
+
+  <footer id="down">
+    <!-- creators of page content-->
+    <audio id="audio" src="audiofile/Halloween Theme 1.mp3" preload="auto"></audio>
+    <!--added relative path to src attribute-->
+    <p class="a">
       Spooky Music Player
-      </p> <!--peters spooky audio text-->
+    </p>
+    <!--peters spooky audio text-->
     <button id="play">Play</button>
     <button id="stop">Stop</button>
     <h4>Made and Designed by: Paul, Zach, and Pete</h4>
-  </footer>  
+  </footer>
   <script src="index.js"></script>
 </body>
 
