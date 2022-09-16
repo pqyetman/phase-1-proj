@@ -202,7 +202,7 @@ function renderWeather(cityAPI) {
   let tempF = parseInt(cityAPI.temp2m.max, 10) * (9 / 5) + 32
   let tempFRound = tempF.toFixed(1)
   date.textContent = reOrderDate(cityAPI.date)
-  temp.textContent = `Max Daily Temperature is: ${tempFRound}°F`
+  temp.textContent = `Max Daily Temperature is: ${tempFRound} Fahrenheit`
   weather.textContent = interpretWeatherAPI(cityAPI.weather)
   wind.textContent = `Wind Conditions: ${interpretWindAPI(cityAPI.wind10m_max)}`
 
