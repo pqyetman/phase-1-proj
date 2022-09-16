@@ -32,14 +32,14 @@ const weathType = document.getElementById('weathtype')
 
 function renderEightHours(weatherData) {
 
-  for (i = 0; i < 8; i++) {
+  for (i = 0; i < 6; i++) {
 
-    cloudCov.children[i].textContent = decodeCloudCover(weatherData[i].cloudcover)
-    relHum.children[i].textContent = weatherData[i].rh2m
-    windD.children[i].textContent = weatherData[i].wind10m.direction
-    windSP.children[i].textContent = interpretWindAPI(weatherData[i].wind10m.speed)
-    precip.children[i].textContent = weatherData[i].prec_type
-    weathType.children[i].textContent = weatherData[i].weather
+    cloudCov.children[i].textContent = ` ${decodeCloudCover(weatherData[i].cloudcover)}`
+    relHum.children[i].textContent = ` ${weatherData[i].rh2m}`
+    windD.children[i].textContent = ` ${weatherData[i].wind10m.direction}`
+    windSP.children[i].textContent = ` ${interpretWindAPI(weatherData[i].wind10m.speed)}`
+    precip.children[i].textContent = ` ${weatherData[i].prec_type}`
+    weathType.children[i].textContent = ` ${interpretWeatherAPI(weatherData[i].weather)}`
 
 
   }
@@ -50,33 +50,33 @@ function renderEightHours(weatherData) {
 function decodeCloudCover(covernum) {
   let output = ""
   switch (covernum) {
-    
+
     case 1:
-     output= '0%-6%';
+      output = '0%-6%';
       break;
     case 2:
-      output= '6%-19%';
+      output = '6%-19%';
       break;
     case 3:
-      output= '19%-31%';
+      output = '19%-31%';
       break;
     case 4:
-      output= '31%-44%';
+      output = '31%-44%';
       break;
     case 5:
-      output='44%-56%';
+      output = '44%-56%';
       break;
     case 6:
-      output= '56%-69%';
+      output = '56%-69%';
       break;
     case 7:
-      output= '69%-81%';
+      output = '69%-81%';
       break;
     case 8:
-      output='81%-94%';
+      output = '81%-94%';
       break;
     case 9:
-      output= '94%-100%';
+      output = '94%-100%';
       break;
   }
   return output;
@@ -273,50 +273,74 @@ function interpretWeatherAPI(weatherAPI) {
   switch (weatherAPI) {
 
     case 'clear':
+    case 'clearday':
+    case 'clearnight':
       output = 'Total cloud cover less than 20%';
       break;
 
     case 'pcloudy':
+    case 'pcloudyday':
+    case 'pcloudynight':
       output = 'Total cloud cover between 20%-60%';
       break;
 
     case 'mcloudy':
+    case 'mcloudyday':
+    case 'mcloudynight':
       output = 'Total cloud cover between 60%-80%';
       break;
 
     case 'cloudy':
+    case 'cloudyday':
+    case 'cloudynight':
       output = 'Total cloud cover between 60%-80%';
       break;
 
     case 'humid':
+    case 'humidday':
+    case 'humidnight':
       output = 'Relative humidity over 90% with total cloud cover less than 60%';
       break;
 
     case 'lightrain':
+    case 'lightrainday':
+    case 'lightrainnight':
       output = 'Rainfall less than 4mm/hr with total cloud cover more than 80%';
       break;
 
     case 'oshower':
+    case 'oshowerday':
+    case 'oshowernight':
       output = 'Rainfall rate less than 4mm/hr with total cloud cover between 60%-80%';
       break;
 
     case 'ishower':
+    case 'ishowerday':
+    case 'ishowernight':
       output = 'Rainfall less than 4mm/hr with total cloud cover less than 60%';
       break;
 
     case 'lightsnow':
+    case 'lightsnowday':
+    case 'lightsnownight':
       output = 'SnowFall rate less than 4mm/hr';
       break;
 
     case 'rain':
+    case 'rainday':
+    case 'rainnight':
       output = 'Rainfall rate over 4mm/hr';
       break;
 
     case 'snow':
+    case 'snowday':
+    case 'snownight':
       output = 'SnowFall rate over 4mm/hr';
       break;
 
     case 'rainsnow':
+    case 'rainsnowday':
+    case 'rainsnownight':
       output = 'Precipitation type to be ice pellets or freezing rain';
       break;
 

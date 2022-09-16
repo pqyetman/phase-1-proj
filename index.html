@@ -8,96 +8,58 @@
 <body>
   <div class="logo">
     <h1>Weather or Not</h1>
-    <audio id="audio" src="audiofile/Halloween Theme 1.mp3" preload="auto"></audio><!--added relative path to src attribute-->
-    <h2>
-      <p class="a">
-      Spooky Music Player
-      </p>
-    </h2> <!--peters spooky audio text-->
-    <button id="play">Play</button>
-    <button id="stop">Stop</button>
+    <h5>spooky music player is <br/>only a<a href="#down"> click </a>away!</h5>
     <div id="light-switch-container">
       <input type="checkbox" id="light-switch">
-      <label id ="light-switch" for="light-switch">light switch</label>
+      <label id ="light-switch" for="light-switch"></label>
     </div>
-    <p>This text explains what this page is.</p>explanation of website
-    <a href="#down">About</a> <!-- peters explanation text and link to creators-->
   </div>
   <div id="weather-bar">
   </div>
   <div id="centerRow"> <!--added div with id centerRow to hold the all divs that appear in the center of page -->
     <div id="left-center"><!--added new column on side-->
-      <h3>The Next 8 Hours</h3>
-      <h4>Cloud Cover</h4>
-      <ol id = cloudcover>
-        <li>Hour 1</li>
-        <li>Hour 2</li>
-        <li>Hour 3</li>
-        <li>Hour 4</li>
-        <li>Hour 5</li>
-        <li>Hour 6</li>
-        <li>Hour 7</li>
-        <li>Hour 8</li>
-      </ol>      
-      <h4>Relative Humidity</h4>
-      <ol id = relhum>
-        <li>Hour 1</li>
-        <li>Hour 2</li>
-        <li>Hour 3</li>
-        <li>Hour 4</li>
-        <li>Hour 5</li>
-        <li>Hour 6</li>
-        <li>Hour 7</li>
-        <li>Hour 8</li>
-      </ol>     
-      <h4>Wind Direction</h4>
-      <ol id = windd>
-        <li>Hour 1</li>
-        <li>Hour 2</li>
-        <li>Hour 3</li>
-        <li>Hour 4</li>
-        <li>Hour 5</li>
-        <li>Hour 6</li>
-        <li>Hour 7</li>
-        <li>Hour 8</li>  
-      </ol>
-      <h4>Wind Speed</h4>
-      <ol id = windsp>
-        <li>Hour 1</li>
-        <li>Hour 2</li>
-        <li>Hour 3</li>
-        <li>Hour 4</li>
-        <li>Hour 5</li>
-        <li>Hour 6</li>
-        <li>Hour 7</li>
-        <li>Hour 8</li> 
-      </ol> 
-      <h4>Precipitation Type</h4>
-      <ol id = precip>
-        <li>Hour 1</li>
-        <li>Hour 2</li>
-        <li>Hour 3</li>
-        <li>Hour 4</li>
-        <li>Hour 5</li>
-        <li>Hour 6</li>
-        <li>Hour 7</li>
-        <li>Hour 8</li>  
-      </ol>  
-      <h4>Weather Type</h4>    
-      <ol id = weathtype>
-        <li>Hour 1</li>
-        <li>Hour 2</li>
-        <li>Hour 3</li>
-        <li>Hour 4</li>
-        <li>Hour 5</li>
-        <li>Hour 6</li>
-        <li>Hour 7</li>
-        <li>Hour 8</li>
-      </ol>  
+      <h3 id="next20Hours">The Next 20 Hours</h3>
+          <p id = cloudcover>Cloud Cover<br/>
+            4 Hours:<span></span><br/>
+            12 Hours:<span></span><br/>
+            20 Hours:<span></span><br/>
+
+        </p>
+        <p id = relhum>Relative Humidity<br/>
+          4 Hours:<span></span><br/>
+          12 Hours:<span></span><br/>
+          20 Hours:<span></span><br/>
+  
+        </p>
+        <p id = windd>Wind Direciton<br/>
+          4 Hours:<span></span><br/>
+          12 Hours:<span></span><br/>
+          20 Hours:<span></span><br/>
+ 
+        </p>
+        <p id = windsp>Wind Speed<br/>
+          4 Hours:<span></span><br/>
+          12 Hours:<span></span><br/>
+          20 Hours:<span></span><br/>
+    
+        </p>
+        <p id = precip>Precipitation<br/>
+          4 Hours:<span></span><br/>
+          12 Hours:<span></span><br/>
+          20 Hours:<span></span><br/>
+        
+        </p>
+        <p id = weathtype>Weather Type<br/>
+          4 Hours:<span></span><br/>
+          12 Hours:<span></span><br/>
+          20 Hours:<span></span><br/>
+   
+        </p>
     </div>
     <div class="weatherInfo">
       <div id="detailed-info">
-        <p id="name">Select A City!</p>
+        <p id="name">Select a city!<br/> 
+        </p>
         <img id="image"
           src="https://img.freepik.com/free-vector/hand-draw-city-skyline-sketch_1035-19581.jpg?w=1380&t=st=1663109490~exp=1663110090~hmac=1bd975880cf692d4e2f6339b4b111bbcf94c770a3dc49e01538e2b0850b85e27"
           alt="No City Selected">
@@ -109,28 +71,38 @@
     </div>
     <div id = "changeDateFieldContainer">
       <fieldset class = "changeDateField">
-        <legend>Select A Date:</legend>   
-      
+        <legend>Select A Date:</legend>
         <div>
           <input type="radio" id="tomorrow" name="date" value="tomorrow">
           <label for="tomorrow">Tomorrow's Forcast</label>
         </div>
-    
         <div>
           <input type="radio" id="twoDays" name="date" value="twoDays">
           <label for="twoDays">Two Day Forcast</label>
         </div>
-
         <div>
           <input type="radio" id="threeDays" name="date" value="threeDays">
           <label for="threeDays">Three Day Forcast</label>
         </div>
       </fieldset>
+      <h3 id="news">News</h3>
+      <p>Man And Dog Walk Around The World, And Weather Was With Them The Entire Time </p>
+      <p>Dozens Of Large Fires Burning Across American West </p>
+      <p>Florida Manatees Doing Slightly Better This Year </p>
+      <p>Weather, crazy am i right? </p>
+      <p>Alaska's western coast is expecting high winds and flooding in powerful storm this weekend </p>
     </div>
   </div><!--end of centerRow div-->
-  <div id="down"> <!-- creators of page content-->
-    <h1>Made and Designed by: Paul, Zach, and Pete</h1>
-  </div>
+  
+  <footer id="down"> <!-- creators of page content-->
+    <audio id="audio" src="audiofile/Halloween Theme 1.mp3" preload="auto"></audio><!--added relative path to src attribute-->
+      <p class="a">
+      Spooky Music Player
+      </p> <!--peters spooky audio text-->
+    <button id="play">Play</button>
+    <button id="stop">Stop</button>
+    <h4>Made and Designed by: Paul, Zach, and Pete</h4>
+  </footer>  
   <script src="index.js"></script>
 </body>
 
